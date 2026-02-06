@@ -66,7 +66,7 @@
 <script src="{{ 'currencies.js' | shopify_asset_url }}" defer></script>
 <script type="module" src="{{ 'hdt-currencies.js' | asset_url }}"></script>
 {%- endif -%}
-{%- if request.design_mode -%}{%- render 'var_adm' -%}{% endif -%}
+
 {%- unless template.name == "password" -%}
 {%- comment -%} begin popover currencies {%- endcomment -%}
 {%- liquid
@@ -84,7 +84,7 @@
 {%- style -%} @media(min-width: 768px) {.hdt-popover-language{ box-shadow: 0 0 1.8rem 0 rgb(var(--color-overlay, 0 0 0) / .2) !important; .hdt-popover__inner{max-height: 45vh;overflow-y:auto} }} .hdt-languages{ vertical-align: middle; line-height: normal; } .hdt-languages>button { background: transparent; color: rgb(var(--color-foreground)); transition: all .3s ease; } .hdt-languages>button svg { width: 1rem; height: auto; margin-inline-start: 1rem; ; position: relative; top: -0.1rem } :where(.hdt-popover-language)::part(content) { padding: 1.5rem 2rem } :where(.hdt-popover-language)::part(body) { padding: 0; } .hdt-popover-language button { line-height:2.6rem; background: transparent; color: rgb(var(--color-foreground)); transition: all .3s ease; } .hdt-popover-language button[aria-selected="true"] { color: rgb(var(--color-accent)) !important; } @media(max-width:767px){ .hdt-popover-language button {line-height:3rem;} } @media (-moz-touch-enabled: 0), (hover: hover) and (min-width: 1150px) { .hdt-languages>button:hover, .hdt-popover-language button:hover { background: transparent; color: rgb(var(--color-foreground) / .8); } }{%- endstyle -%}
 {%- liquid
   assign current_locale = request.locale
-  assign current_locale_iso_code = current_locale.iso_code 
+  assign current_locale_iso_code = current_locale.iso_code
 -%}
 <hdt-popover popover-active-min-width="1150" data-auto-close="desktop" placement="bottom" color-scheme="{{ settings.color_scheme_dialog }}">
   <dialog id="popover-languages" class="hdt-popover hdt-popover-language hdt-dropdown hdt-text-start hdt-flag-size-{{ settings.size_currency }}" scroll-lock>
